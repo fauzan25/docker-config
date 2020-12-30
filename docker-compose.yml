@@ -10,7 +10,7 @@ services:
       dockerfile: nginx.dockerfile
     container_name: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
@@ -24,6 +24,7 @@ services:
     container_name: mysql
     restart: unless-stopped
     tty: true
+    user: "1000:50"
     ports:
       - "3306:3306"
     environment:
